@@ -1,28 +1,18 @@
 "use client";
 // components/AnimatedSection.tsx
-import { motion } from "framer-motion";
+import { motion, MotionProps } from "framer-motion";
 
-interface AnimatedSectionProps {
+interface AnimatedSectionProps extends MotionProps {
   children: React.ReactNode;
-  initial?: object;
-  animate?: object;
-  transition?: object;
-  whileInView?: object;
 }
 
 const AnimatedSection: React.FC<AnimatedSectionProps> = ({
   children,
-  initial,
-  animate,
-  transition,
-  whileInView,
+  ...motionProps // Coleta as propriedades de animação
 }) => {
   return (
     <motion.div
-      initial={initial}
-      animate={animate}
-      transition={transition}
-      whileInView={whileInView}
+      {...motionProps} // Espalha as propriedades de animação para o div
       viewport={{ once: true }} // Opcional, se quiser que a animação ocorra apenas uma vez
     >
       {children}
