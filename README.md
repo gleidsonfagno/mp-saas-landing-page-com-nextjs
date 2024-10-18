@@ -61,11 +61,11 @@ $ git clone https://github.com/seu-usuario/seu-projeto
 $ npm install
 
 # Rode a aplicação
-$ npm start
+$ npm run  dev
 ```
 
 ## Contact
 
 - Website [gleidsonfagno.com](https://www.gleidsonfagno.com.br/)
-- GitHub [@your-username](https://{github.com/your-usermame})
+- GitHub [@gleidsonfagno](https://github.com/gleidsonfagno)
 - Linkedin [@Linkedin](https://www.linkedin.com/in/gleidson-fagno-1510a91ab/)
