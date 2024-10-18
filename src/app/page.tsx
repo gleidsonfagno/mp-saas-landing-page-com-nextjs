@@ -1,3 +1,4 @@
+import AnimatedSection from "@/components/AnimatedSection";
 import Nav from "@/components/nav";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -9,28 +10,35 @@ export default function Home() {
       <header className="bg-[url('/assets/Background.svg')] bg-cover bg-center  p-4 ">
         <Nav />
 
-        <section className="flex flex-col gap-16 items-center sm:pb-32 pb-12">
-          <div className="flex flex-col text-center max-w-[827px] m-auto gap-2">
-            <h1 className="text-2xl sm:text-6xl font-bold">
-              Simplifique Seus Estudo
-            </h1>
-            <p className="text-xs sm:text-xl text-zinc-400 font-normal">
-              Deixe que nós fazemos a curadoria para você. Assine nossa
-              plataforma e receba todos os meses um ebook novo de programação.
-            </p>
-          </div>
-
-          <div>
-            <div className="flex w-full max-w-sm items-center space-x-2 ">
-              <Input type="email" placeholder="Coloque seu email" />
-              <Button  type="submit">Assine Agora</Button>
+        <AnimatedSection
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+        >
+          <section className="flex flex-col gap-16 items-center sm:pb-32 pb-12">
+            <div className="flex flex-col text-center max-w-[827px] m-auto gap-2">
+              <h1 className="text-2xl sm:text-6xl font-bold">
+                Simplifique Seus Estudo
+              </h1>
+              <p className="text-xs sm:text-xl text-zinc-400 font-normal">
+                Deixe que nós fazemos a curadoria para você. Assine nossa
+                plataforma e receba todos os meses um ebook novo de programação.
+              </p>
             </div>
 
-            <p className="text-[10px] text-center font-light text-zinc-400 pt-7 sm:pt-3 ">
-              Comece sua assinatura agora mesmo. Cancele quando quiser.
-            </p>
-          </div>
-        </section>
+            <div>
+              <div className="flex w-full max-w-sm items-center space-x-2 ">
+                <Input type="email" placeholder="Coloque seu email" />
+                <Button type="submit">Assine Agora</Button>
+              </div>
+
+              <p className="text-[10px] text-center font-light text-zinc-400 pt-7 sm:pt-3 ">
+                Comece sua assinatura agora mesmo. Cancele quando quiser.
+              </p>
+            </div>
+          </section>
+
+        </AnimatedSection>
       </header>
 
       <section id="funcionamento">
@@ -188,33 +196,35 @@ export default function Home() {
       </section>
 
       <section>
-        <div className="max-w-[900px] m-auto gap-[74px] px-4 flex flex-col pt-[108px] pb-[79px]">
-          <div className="flex flex-col gap-4 pb-[74pxx]">
-            <h2 className="text-2xl sm:text-6xl font-bold text-center">
+        <div className="max-w-[900px] m-auto sm:gap-[74px] gap-6 px-4 flex flex-col sm:pt-[108px] sm:pb-[79px] py-14">
+          <div className="flex flex-col gap-4 ">
+            <h2 className="text-4xl sm:text-6xl font-bold text-center">
               Pronto Para Mudar Sua Vida?
             </h2>
             <p className="text-xs sm:text-xl text-zinc-400 font-normal text-center">
               Faça como milhares de outras pessoas. Assine nosso produto e tenha
-              garantido seus estudos{" "}
+              garantido seus estudos
             </p>
           </div>
 
           <div className="max-w-[517px] display flex flex-col m-auto  sm:gap-2">
             <Button className="w-full">Assine Agora</Button>
             <p className="text-xs text-zinc-400 font-normal text-center p-2">
-              Comece sua assinatura agora mesmo. Cancele quando quiser.{" "}
+              Comece sua assinatura agora mesmo. Cancele quando quiser.
             </p>
           </div>
         </div>
       </section>
 
       <footer>
-        <div className="flex  flex-col gap-1 justify-center items-center py-12">
+        <div className="flex  flex-col gap-1 justify-center items-center sm:pb-12  pb-9">
           <a href="/" title="Ir para a página inicial">
             <Image src="/assets/Logo.svg" width={129} height={87} alt="logo" />
           </a>
 
-          <p className="text-xs text-zinc-400 font-normal text-center">© 2024 LivroSaaS. Todos os direitos reservados.</p>
+          <p className="text-xs text-zinc-400 font-normal text-center">
+            © 2024 LivroSaaS. Todos os direitos reservados.
+          </p>
         </div>
       </footer>
     </>

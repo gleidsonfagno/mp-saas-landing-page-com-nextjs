@@ -2,14 +2,37 @@
 
 import Image from "next/image";
 import { Button } from "./ui/button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { TfiAlignJustify, TfiClose } from "react-icons/tfi";
 
 export default function Nav() {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => {
       setIsOpen(!isOpen);
+      // setIsOpen
+      console.log(isOpen)
     };
+
+
+    // if(isOpen)
+    useEffect(() => {
+      const handleResize = () => {
+          if (window.innerWidth > 725) {
+              setIsOpen(false);
+          }
+      };
+
+      // Adiciona o evento de redimensionamento da janela
+      window.addEventListener('resize', handleResize);
+
+      // Remove o evento de redimensionamento ao desmontar o componente
+      return () => {
+          window.removeEventListener('resize', handleResize);
+      };
+  }, []);
+
+    
     return(
         <div className=" max-w-[1352px] m-auto">
           <nav className="flex justify-between items-center pt-4 pb-16 sm:pt-10 sm:pb-20">
@@ -26,12 +49,7 @@ export default function Nav() {
               <button
               aria-label="Abrir Menu"
                 onClick={toggleMenu}>
-                  <Image
-                src="/assets/Men-Icon.png"
-                width={25.4}
-                height={87}
-                alt="logo"
-              />
+              <TfiAlignJustify className="w-6 h-6" />
               </button>
             </div>
 
@@ -42,11 +60,11 @@ export default function Nav() {
               <a href="#preco" title="Ir para a secao preco">
                 Preço
               </a>
-              <Button type="submit">Login</Button>
+              <Button variant="ghost" type="submit">Login</Button>
             </div>
 
             {isOpen && (
-            <div className="absolute bottom-0 top-0 left-0 right-0 w-100vw sm:left-[50%] h-100vh bg-gray-600 text-white flex flex-col items-start justify-center gap-5 p-5">
+            <div className="absolute bottom-0 top-0 left-0 right-0 w-100vw sm:left-[50%] h-100vh bg-gray-400 text-white flex flex-col items-start justify-center gap-5 p-5">
 
               <div className="flex flex-col items-start gap-5">
               <a href="#funcionamento" onClick={toggleMenu} title="Ir para a secao Funcionamento">
@@ -55,18 +73,14 @@ export default function Nav() {
               <a href="#preco" onClick={toggleMenu} title="Ir para a secao preco">
                 Preço
               </a>
-              <Button type="submit" >Login</Button>
+              <Button variant="secondary" type="submit">Login</Button>
             </div>
 
               <button 
                 onClick={toggleMenu}
-                aria-label="Abrir Menu">
-                  <Image
-                src="/assets/Men-Icon.png"
-                width={25.4}
-                height={87}
-                alt="logo"
-              />
+                aria-label="Abrir Menu">              
+              <TfiClose className="w-6 h-6" />
+
               </button>
               
             </div>
