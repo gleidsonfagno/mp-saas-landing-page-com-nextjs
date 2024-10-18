@@ -64,7 +64,7 @@ export default function Nav() {
             </div>
 
             {isOpen && (
-            <div className="absolute bottom-0 top-0 left-0 right-0 w-100vw sm:left-[50%] h-100vh bg-gray-400 text-white flex flex-col items-start justify-center gap-5 p-5">
+            <div className="absolute bottom-0 top-0 left-0 right-0 w-100vw sm:left-[50%] h-100vh bg-gray-400 text-white flex flex-col items-start justify-center gap-5 p-5 z-10">
 
               <div className="flex flex-col items-start gap-5">
               <a href="#funcionamento" onClick={toggleMenu} title="Ir para a secao Funcionamento">
